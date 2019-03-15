@@ -1,0 +1,55 @@
+Name,Email,Password,Age,Gender,Department,Office,Department Name,Title,Team ID,Teaching
+Dr Nann Wood,nwo@lionstate.edu,r403d0qn,56,M,CSE,"256, Building 18",Computer Science and Engineering,Head,37,CSE583
+Dr Norton Hughes,nhu@lionstate.edu,yzpp5f1t,48,F,CSE,"212, Building 18",Computer Science and Engineering,Professor,48,CSE543
+Dr Russell Richardson,rri@lionstate.edu,1d7gjq5g,53,M,CMPSC,"168, Building 7",Computer Science,Head,35,CMPSC431W
+Dr Halsey Lopez,hlo@lionstate.edu,rq02mf0g,52,F,CMPSC,"289, Building 7",Computer Science,Professor,38,CMPSC461
+Dr Dikembe Sanchez,dsa@lionstate.edu,duf07wf7,47,M,CMPSC,"232, Building 7",Computer Science,Professor,5,CMPSC465
+Dr Freowine Rogers,fro@lionstate.edu,5p2ex4mp,47,M,CMPSC,"105, Building 7",Computer Science,Professor,2,CMPSC448
+Dr Deshawn Cox,dco@lionstate.edu,ususknvt,51,M,CMPSC,"187, Building 7",Computer Science,Professor,23,CMPSC475
+Dr Gil Bell,gbe@lionstate.edu,bg3kzhnv,52,M,CMPSC,"284, Building 7",Computer Science,Professor,30,CMPSC497
+Dr Sheldon Cook,sco@lionstate.edu,4oioidlt,56,M,CMPSC,"253, Building 7",Computer Science,Professor,42,CMPSC131
+Dr Walker Campbell,wca@lionstate.edu,gvaocvt1,58,M,CMPSC,"126, Building 7",Computer Science,Professor,25,CMPSC132
+Dr Luca Torres,lto@lionstate.edu,c2hp2dd4,57,F,CMPSC,"188, Building 7",Computer Science,Professor,33,CMPSC221
+Dr Royce Edwards,red@lionstate.edu,yqh493g3,48,M,CMPSC,"261, Building 7",Computer Science,Professor,13,CMPSC360
+Dr Blas Butler,bbu@lionstate.edu,wgqpqh2t,44,F,CMPSC,"228, Building 7",Computer Science,Professor,11,CMPSC311
+Dr Jerred Martinez,jma@lionstate.edu,wmb17np1,55,F,CMPEN,"239, Building 5",Computer Engineering,Head,52,CMPEN270
+Dr Wincent Peterson,wpe@lionstate.edu,jqy2dgis,60,F,CMPEN,"160, Building 5",Computer Engineering,Professor,3,CMPEN331
+Dr Kofi Myers,kmy@lionstate.edu,v9xe9cd3,46,M,CMPEN,"222, Building 5",Computer Engineering,Professor,43,CMPEN351
+Dr Derwent White,dwh@lionstate.edu,6v7gf9s0,59,F,CMPEN,"138, Building 5",Computer Engineering,Professor,54,CMPEN362
+Dr Beauregard Moore,bmo@lionstate.edu,0p3ipgfz,59,M,CMPEN,"107, Building 5",Computer Engineering,Professor,28,CMPEN411
+Dr Halliwell Phillips,hph@lionstate.edu,tqsaz0vp,43,M,CMPEN,"124, Building 5",Computer Engineering,Professor,16,CMPEN431
+Dr Rich Collins,rco@lionstate.edu,sx0mkxzn,49,M,CMPEN,"142, Building 5",Computer Engineering,Professor,24,CMPEN441
+Dr Ford Price,fpr@lionstate.edu,jtoamzax,56,F,CMPEN,"189, Building 5",Computer Engineering,Professor,47,CMPEN454
+Dr Merle Hill,mhi@lionstate.edu,m18o3u41,60,M,EE,"180, Building 13",Electrical and Electronics Engineering,Head,44,EE210
+Dr Thatcher Jenkins,tje@lionstate.edu,jxxciuc9,52,M,EE,"296, Building 13",Electrical and Electronics Engineering,Professor,4,EE211
+Dr Arlie Adams,aad@lionstate.edu,dc06u9nm,60,F,EE,"131, Building 13",Electrical and Electronics Engineering,Professor,40,EE212
+Dr Aspen Brown,abr@lionstate.edu,s6ali6hq,49,F,EE,"276, Building 13",Electrical and Electronics Engineering,Professor,6,EE311
+Dr Raimy Perez,rpe@lionstate.edu,44j06cnw,53,M,EE,"152, Building 13",Electrical and Electronics Engineering,Professor,26,EE320
+Dr Cassidy Gomez,cgo@lionstate.edu,diy0nmdr,44,F,EE,"149, Building 13",Electrical and Electronics Engineering,Professor,53,EE330
+Dr Baldwin Roberts,bro@lionstate.edu,6cbbt7ot,42,F,EE,"293, Building 13",Electrical and Electronics Engineering,Professor,17,EE340
+Dr Searles Williams,swi@lionstate.edu,29cu0i4q,53,F,EE,"219, Building 13",Electrical and Electronics Engineering,Professor,15,EE352
+Dr Karol Hodgson,kho@lionstate.edu,a4827x3j,46,M,EE,"144, Building 13",Electrical and Electronics Engineering,Professor,19,EE353
+Dr Jackie Carpenter,jca@lionstate.edu,55ycoqop,47,F,MATH,"181, Building 12",Mathematics,Head,36,MATH140
+Dr Casimiro Young,cyo@lionstate.edu,l9q4tta8,41,F,MATH,"277, Building 12",Mathematics,Professor,41,MATH141
+Dr Virginia Hines,vhi@lionstate.edu,tslak1a6,45,F,MATH,"268, Building 12",Mathematics,Professor,50,MATH230
+Dr Bethel Hawkins,bha@lionstate.edu,d1uz3aya,44,M,MATH,"294, Building 12",Mathematics,Professor,45,MATH231
+Dr Addai Reyes,are@lionstate.edu,mpe2olmx,48,F,PHYS,"174, Building 8",Physics,Head,12,PHYS211
+Dr Erasmo Martin,ema@lionstate.edu,ebtz2fob,50,F,PHYS,"127, Building 8",Physics,Professor,49,PHYS212
+Dr Mikelle Parry,mpa@lionstate.edu,2koidnt2,41,M,PHYS,"182, Building 8",Physics,Professor,14,PHYS213
+Dr Buddy Sutherland,bsu@lionstate.edu,845bd92l,57,M,PHYS,"175, Building 8",Physics,Professor,29,PHYS214
+Dr Adan Senior,ase@lionstate.edu,owq94wfe,57,F,STAT,"110, Building 14",Statistics,Head,21,STAT318
+Dr Cavan Jacobs,cja@lionstate.edu,rlj07keq,56,M,STAT,"156, Building 14",Statistics,Professor,18,STAT319
+Dr Carlyle Peters,cpe@lionstate.edu,x26uaxzr,42,M,STAT,"227, Building 14",Statistics,Professor,39,STAT414
+Dr Roy Fuller,rfu@lionstate.edu,gusbe091,41,M,STAT,"104, Building 14",Statistics,Professor,46,STAT415
+Dr Lexis Gardner,lga@lionstate.edu,zrcwnnrz,46,F,ECON,"206, Building 15",Economics,Head,51,ECON101
+Dr Welborn Mitchell,wmi@lionstate.edu,9ozcn0sr,55,M,ECON,"236, Building 15",Economics,Professor,20,ECON102
+Dr Kourtney Booth,kbo@lionstate.edu,cqw7hrg3,51,M,ECON,"224, Building 15",Economics,Professor,27,ECON201
+Dr Finch Foster,ffo@lionstate.edu,9uhmclic,50,F,CHEM,"217, Building 3",Chemistry,Head,10,CHEM110
+Dr Royal Parsons,rpa@lionstate.edu,cukoqrzk,44,M,CHEM,"257, Building 3",Chemistry,Professor,31,CHEM111
+Dr Konnor Nicholson,kni@lionstate.edu,sekbfhqm,55,M,CHEM,"170, Building 3",Chemistry,Professor,34,CHEM112
+Dr Rudd Sullivan,rsu@lionstate.edu,qui392mr,53,M,IST,"195, Building 10",Information Science and Technology,Head,1,IST110
+Dr Radcliff Silva,rsi@lionstate.edu,ogmh36q7,56,M,IST,"274, Building 10",Information Science and Technology,Professor,32,IST558
+Dr Mina Harding,mha@lionstate.edu,2xzermda,57,F,IST,"184, Building 10",Information Science and Technology,Professor,7,IST128
+Dr Jair Woods,jwo@lionstate.edu,x2boxvpo,58,M,DS,"213, Building 6",Data Science,Head,8,DS220
+Dr Ralf Reed,rre@lionstate.edu,m56icvld,56,M,DS,"270, Building 6",Data Science,Professor,9,DS120
+Dr Marni Amor,mam@lionstate.edu,jlt1x825,56,M,DS,"216, Building 6",Data Science,Professor,22,DS410
