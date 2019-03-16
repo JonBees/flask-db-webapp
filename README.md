@@ -8,3 +8,4 @@ You will be able to access the two CSV files in the GitHub classroom repository 
 or Capstone grades. You will have to take care of this part of the “OrganizingTeams” task.
 * Please inspect the columns in the CSV files to understand the data and its types.
 * When you create the “Enrolled” table, ensure that the section limits are respected. There may be more students in the CSV file for a section than the capacity.
+* For the “Administration” task, add a user with the email admin@lionstate.edu with your choice of password
