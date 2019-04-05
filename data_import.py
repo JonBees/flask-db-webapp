@@ -351,11 +351,43 @@ def populate_enrolls(scsv):
 
     enrol_insert = []
 
+    sec_cap = {}
+
     # Collect all three course + section entries for each student
     for stud in sdict:
-        enrol_insert.append([stud["Email"], stud["Courses 1"], stud["Course 1 Section"]])
-        enrol_insert.append([stud["Email"], stud["Courses 2"], stud["Course 2 Section"]])
-        enrol_insert.append([stud["Email"], stud["Courses 3"], stud["Course 3 Section"]])
+        c1key = stud["Courses 1"] + ":" + stud["Course 1 Section"]
+        c2key = stud["Courses 2"] + ":" + stud["Course 2 Section"]
+        c3key = stud["Courses 3"] + ":" + stud["Course 3 Section"]
+
+        # keep track of section enrollment caps
+        if c1key not in sec_cap:
+            sec_cap[c1key] = [0, int(stud["Course 1 Section Limit"])]
+        if c2key not in sec_cap:
+            sec_cap[c2key] = [0, int(stud["Course 2 Section Limit"])]
+        if c3key not in sec_cap:
+            sec_cap[c3key] = [0, int(stud["Course 3 Section Limit"])]
+
+        # check if there is enough room remaining in a section before enrolling another student
+        if sec_cap[c1key][0] < sec_cap[c1key][1]:
+            enrol_insert.append([stud["Email"], stud["Courses 1"], stud["Course 1 Section"]])
+            sec_cap[c1key][0] = sec_cap[c1key][0] + 1
+        else:
+            print("\t" + stud["Email"] + " will not fit in " + c1key)
+
+        if sec_cap[c2key][0] < sec_cap[c2key][1]:
+            enrol_insert.append([stud["Email"], stud["Courses 2"], stud["Course 2 Section"]])
+            sec_cap[c2key][0] = sec_cap[c2key][0] + 1
+        else:
+            print("\t" + stud["Email"] + " will not fit in " + c2key)
+
+        if sec_cap[c3key][0] < sec_cap[c3key][1]:
+            enrol_insert.append([stud["Email"], stud["Courses 3"], stud["Course 3 Section"]])
+            sec_cap[c3key][0] = sec_cap[c3key][0] + 1
+        else:
+            print("\t" + stud["Email"] + " will not fit in " + c3key)
+
+    # for sec in sec_cap:
+    #     print(sec + " -- " + str(sec_cap[sec][0]) + " out of " + str(sec_cap[sec][1]))
 
     cursor.executemany("""INSERT INTO Enrolls (student_email, course_id, section_no) VALUES (?, ?, ?)""", enrol_insert)
 
