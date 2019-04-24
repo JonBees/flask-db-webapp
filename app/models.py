@@ -206,6 +206,7 @@ class Section:
             [sid, self.course_id, self.sec_no])
         for row in cursor:
             hw_grades.append([row[0], row[1], row[2]])
+        print(hw_grades)
         cursor.close()
         connection.close()
         return hw_grades

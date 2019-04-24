@@ -240,7 +240,7 @@ def admin_unenroll_student(student, course_id, sec_no):
     secs = admin_get_sections(course_id)
     if int(sec_no) in secs:
         user = User(student)
-        if user.id != "" and (course_id, sec_no) in user.get_enrollments():
+        if user.id != "" and (course_id, int(sec_no)) in user.get_enrollments():
             cursor.execute("""DELETE FROM Enrolls WHERE student_email = ? AND course_id = ? AND section_no = ?""",
                            [student, course_id, sec_no])
             print("Removed student {} from course {} section {}.".format(student, course_id, sec_no))

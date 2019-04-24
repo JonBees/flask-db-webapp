@@ -85,7 +85,9 @@ def course(section_id):
             user = User(prof)
             profs.append([user.name, user.id, user.office_address])
         hw_grades = sec.get_student_hw_grades(current_user.id)
+        print(hw_grades)
         exam_grades = sec.get_student_exam_grades(current_user.id)
+        print(exam_grades)
         projects = sec.get_student_projects(current_user.id)
         return render_template('course.html', title=sec.course_id, section=sec, profs=profs, hw_grades=hw_grades,
                                exam_grades=exam_grades, projects=projects)
@@ -127,6 +129,7 @@ def managecourse(section_id):
                 if hw_form.submit.data and hw_form.validate_on_submit():
                     # grade[1] is the grade's attached student ID, hw[0] is the homework number
                     gradebook.set_hw_grade(grade[1], hw[0], hw_form.grade.data)
+                    flash("Set Homework {} grade for {} to {}.".format(hw[0], grade[1], hw_form.grade.data))
                     return redirect(url_for('managecourse', section_id=section_id))
 
         if sec.sec_type == "Reg":
@@ -142,6 +145,7 @@ def managecourse(section_id):
                     if exam_form.submit.data and exam_form.validate_on_submit():
                         # grade[1] is the grade's attached student ID, exam[0] is the exam number
                         gradebook.set_exam_grade(grade[1], exam[0], exam_form.grade.data)
+                        flash("Set Exam {} grade for {} to {}.".format(exam[0], grade[1], exam_form.grade.data))
                         return redirect(url_for('managecourse', section_id=section_id))
 
         if sec.sec_type == "Cap":
