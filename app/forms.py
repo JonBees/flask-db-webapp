@@ -94,9 +94,7 @@ class RemoveProjectForm(FlaskForm):
 
 
 class AddTeamForm(FlaskForm):
-    # project = SelectField('Project', validators=[DataRequired()])
     project = SelectField('Project')
-    # students = SelectMultipleField('Students', validators=[DataRequired()])
     students = SelectMultipleField('Students')
     submit = SubmitField('Add Team')
 

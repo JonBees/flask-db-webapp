@@ -4,10 +4,10 @@
     <h1>Hi, {{ current_user.name }}!</h1>
 
     {% if current_user.user_type == "S" %}
-    <h3>You are currently enrolled in:</h3>
+        <h3>You are currently enrolled in:</h3>
     {% endif %}
     {% if current_user.user_type == "P" %}
-    <h3>You are currently teaching:</h3>
+        <h3>You are currently teaching:</h3>
     {% endif %}
 
     <div class=row">
