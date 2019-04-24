@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block app_content %}
+    <h1>{{ current_user.name }}'s Profile</h1>
+    <h3>Personal Information:</h3>
+    <table class="table table-striped">
+        <tr>
+            <td>User ID:</td>
+            <td>{{ current_user.id }}</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>{{ current_user.age }}</td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>{{ current_user.gender }}</td>
+        </tr>
+        {% if current_user.user_type == "S" %}
+            <tr>
+                <td>User type:</td>
+                <td>Student</td>
+            </tr>
+            <tr>
+                <td>Major:</td>
+                <td>{{ current_user.major }}</td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>{{ current_user.street }} {{ current_user.city }}</td>
+            </tr>
+        {% endif %}
+        {% if current_user.user_type == "P" %}
+            <tr>
+                <td>User type:</td>
+                <td>Professor</td>
+            </tr>
+            <tr>
+                <td>Title:</td>
+                <td>{{ current_user.title }}</td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td>{{ current_user.department }}</td>
+            </tr>
+            <tr>
+                <td>Office:</td>
+                <td>{{ current_user.office_address }}</td>
+            </tr>
+        {% endif %}
+        {% if current_user.user_type == "A" %}
+            <tr>
+                <td>User type:</td>
+                <td>Administrator</td>
+            </tr>
+        {% endif %}
+    </table>
+
+    <button class="btn btn-default" data-toggle="collapse" data-target="#pwchange">Change Password</button>
+
+    <div id="pwchange" class="collapse">
+        <div class="row">
+            <div class="col-md-4">
+                {{ wtf.quick_form(form, button_map={"submit": "danger"}) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

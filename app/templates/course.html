@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>{{ section.course_name }}</h1>
+    <h3>{{ section.course_id }} Section {{ section.sec_no }}</h3>
+    <h5>{{ section.course_desc }}</h5>
+    <br>
+    <h4>Taught by:</h4>
+    <table class="table">
+        {% for prof in profs %}
+            <td>{{ prof[0] }}</td>
+            <td>{{ prof[1] }}</td>
+            <td>{{ prof[2] }}</td>
+        {% endfor %}
+    </table>
+
+    <hr>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#hwcollapse">Homework</a>
+            </h4>
+        </div>
+        <div id="hwcollapse" class="panel-collapse collapse in">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Details</th>
+                    <th>Grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for hw in hw_grades %}
+                    <tr>
+                        <td>{{ hw[0] }}</td>
+                        <td>{{ hw[1] }}</td>
+                        <td>{{ hw[2] }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    {% if section.sec_type=="Reg" %}
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#examcollapse">Exams</a>
+                </h4>
+            </div>
+            <div id="examcollapse" class="panel-collapse collapse in">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Details</th>
+                        <th>Grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for exam in exam_grades %}
+                        <tr>
+                            <td>{{ exam[0] }}</td>
+                            <td>{{ exam[1] }}</td>
+                            <td>{{ exam[2] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    {% endif %}
+
+    {% if section.sec_type=="Cap" %}
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#projcollapse">Projects</a>
+                </h4>
+            </div>
+            <div id="projcollapse" class="panel-collapse collapse in">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Team ID</th>
+                        <th>Project #</th>
+                        <th>Grade</th>
+                        <th>Sponsor ID</th>
+                        <th>Sponsor Name</th>
+                        <th>Sponsor Office</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for project in projects %}
+                        <tr>
+                            <td>{{ project[0] }}</td>
+                            <td>{{ project[1] }}</td>
+                            <td>{{ project[2] }}</td>
+                            <td>{{ project[3] }}</td>
+                            <td>{{ project[4] }}</td>
+                            <td>{{ project[5] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

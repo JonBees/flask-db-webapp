@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block app_content %}
+    <h1>{{ section.course_name }}</h1>
+    <h3>{{ section.course_id }} Section {{ section.sec_no }}</h3>
+    <h5>{{ section.course_desc }}</h5>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#hwcollapse">Homework</a>
+            </h4>
+        </div>
+        <div id="hwcollapse" class="panel-collapse collapse in">
+            <div class="panel-body">
+                {{ wtf.quick_form(new_hw, form_type="inline", button_map={"submit": "success"}) }}
+            </div>
+
+            {% for hw in hw_gradebook %}
+
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#hwinner{{ hw[0] }}">Assignment {{ hw[0] }}
+                            <small>{{ hw[1] }}</small>
+                        </a>
+                    </h4>
+                </div>
+                <div id="hwinner{{ hw[0] }}" class="panel-collapse collapse in">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>ID</th>
+                            <th>Grade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for grade in hw[2] %}
+                            <tr>
+                                <td>{{ grade[0] }}</td>
+                                <td>{{ grade[1] }}</td>
+                                <td>{{ wtf.quick_form(grade[3], form_type="inline") }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    {% if section.sec_type=="Reg" %}
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#examcollapse">Exams</a>
+                </h4>
+            </div>
+            <div id="examcollapse" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    {{ wtf.quick_form(new_exam, form_type="inline", button_map={"submit": "success"}) }}
+                </div>
+
+                {% for exam in exam_gradebook %}
+
+                    <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#examinner{{ exam[0] }}">Exam {{ exam[0] }}
+                                <small>{{ exam[1] }}</small>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="examinner{{ exam[0] }}" class="panel-collapse collapse in">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>ID</th>
+                                <th>Grade</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for grade in exam[2] %}
+                                <tr>
+                                    <td>{{ grade[0] }}</td>
+                                    <td>{{ grade[1] }}</td>
+                                    <td>{{ wtf.quick_form(grade[3], form_type="inline") }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    {% if section.sec_type == "Cap" %}
+
+        {#        list of teams, projects, and grades #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#teamcollapse">Teams</a>
+                </h4>
+            </div>
+            <div id="teamcollapse" class="panel-collapse collapse">
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Team #</th>
+                            <th>Project</th>
+                            <th>Grade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for team in team_grade_forms %}
+                            <tr>
+                                <td>{{ team[0] }}</td>
+                                <td>{{ team[1] }}</td>
+                                <td>{{ wtf.quick_form(team[2], form_type="inline") }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        {#        add project form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#addprojcollapse">Add Project</a>
+                </h4>
+            </div>
+            <div id="addprojcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(add_proj_form, button_map={"submit": "success"}) }}
+
+                </div>
+            </div>
+
+        </div>
+        {#        add team form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#addteamcollapse">Add Team</a>
+                </h4>
+            </div>
+            <div id="addteamcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(add_team_form, button_map={"submit": "success"}) }}
+
+                </div>
+            </div>
+
+        </div>
+        {#        add students to team form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#addtoteamcollapse">Add Students to Team</a>
+                </h4>
+            </div>
+            <div id="addtoteamcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(add_students_form, button_map={"submit": "success"}) }}
+
+                </div>
+            </div>
+
+        </div>
+        {#        remove project form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#remprojcollapse">Remove Project</a>
+                </h4>
+            </div>
+            <div id="remprojcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(remove_project_form, button_map={"submit": "danger"}) }}
+
+                </div>
+            </div>
+
+        </div>
+        {#        remove team form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#remteamcollapse">Remove Team</a>
+                </h4>
+            </div>
+            <div id="remteamcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(remove_team_form, button_map={"submit": "danger"}) }}
+
+                </div>
+            </div>
+
+        </div>
+        {#        remove student from team form #}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#remstudentcollapse">Remove Student from Team</a>
+                </h4>
+            </div>
+            <div id="remstudentcollapse" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {{ wtf.quick_form(remove_student_form, button_map={"submit": "danger"}) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block app_content %}
+
+    <h1>Course Administration</h1>
+    <hr>
+
+    {#    assign professor to course  #}
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#assigncollapse">Assign Professor</a>
+            </h4>
+        </div>
+        <div id="assigncollapse" class="panel-collapse collapse">
+            <div class="panel-body">
+                {{ wtf.quick_form(assign_form, button_map={"submit": "success"}) }}
+
+            </div>
+        </div>
+
+    </div>
+
+    {#    enroll students in courses  #}
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#enrollcollapse">Enroll Students</a>
+            </h4>
+        </div>
+        <div id="enrollcollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(enroll_form, button_map={"submit": "success"}) }}
+
+            </div>
+        </div>
+    </div>
+
+
+    {#    create section #}
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#addseccollapse">Create Section</a>
+            </h4>
+        </div>
+        <div id="addseccollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(add_sec_form, button_map={"submit": "success"}) }}
+
+            </div>
+        </div>
+    </div>
+
+    {#    create course #}
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#addcoursecollapse">Create Course</a>
+            </h4>
+        </div>
+        <div id="addcoursecollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(add_course_form, button_map={"submit": "success"}) }}
+
+            </div>
+        </div>
+    </div>
+
+    {# Unenroll student #}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#unenrollcollapse">Unenroll Student</a>
+            </h4>
+        </div>
+        <div id="unenrollcollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(unenroll_form, button_map={"submit": "danger"}) }}
+            </div>
+        </div>
+    </div>
+
+    {#    Remove section #}
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#remseccollapse">Remove Section</a>
+            </h4>
+        </div>
+        <div id="remseccollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(rem_sec_form, button_map={"submit": "danger"}) }}
+
+            </div>
+        </div>
+    </div>
+
+
+    {#    remove course #}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#remcoursecollapse">Remove Course</a>
+            </h4>
+        </div>
+        <div id="remcoursecollapse" class="panel-collapse collapse">
+
+            <div class="panel-body">
+                {{ wtf.quick_form(rem_course_form, button_map={"submit": "danger"}) }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

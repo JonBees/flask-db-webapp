@@ -10,7 +10,7 @@ def populate_all():
     prof_csv = open('./csv/Professors.csv', 'r')
     stud_csv = open('./csv/Students.csv', 'r')
 
-    # populate_user(prof_csv, stud_csv)
+    populate_user(prof_csv, stud_csv)
     populate_student(stud_csv)
     populate_professor(prof_csv)
     populate_prof_teams(prof_csv)
@@ -44,6 +44,7 @@ def populate_user(pcsv, scsv):
                       name CHAR(50) NOT NULL,
                       age INTEGER NOT NULL,
                       gender CHAR(1) NOT NULL,
+                      acct_type CHAR(1) NOT NULL,
                       PRIMARY KEY (email))""")
 
     pdict = csv.DictReader(pcsv)
@@ -54,13 +55,19 @@ def populate_user(pcsv, scsv):
     print("\thashing professors' passwords")
     for prof in pdict:
         user_insert.append([prof["Email"], werkzeug.security.generate_password_hash(prof["Password"]), prof["Name"],
-                            prof["Age"], prof["Gender"]])
+                            prof["Age"], prof["Gender"], "P"])
     print("\thashing students' passwords")
     for stud in sdict:
-        user_insert.append([stud["Email"], werkzeug.security.generate_password_hash(stud["Password"]), stud["Full Name"],
-                            stud["Age"], stud["Gender"]])
+        user_insert.append(
+            [stud["Email"], werkzeug.security.generate_password_hash(stud["Password"]), stud["Full Name"],
+             stud["Age"], stud["Gender"], "S"])
 
-    cursor.executemany("""INSERT INTO User (email, password, name, age, gender) VALUES (?, ?, ?, ?, ?)""", user_insert)
+    # create an incredibly insecure admin account
+    user_insert.append(
+        ["admin@lionstate.edu", werkzeug.security.generate_password_hash("password"), "Admin", "42", "F", "A"])
+
+    cursor.executemany("""INSERT INTO User (email, password, name, age, gender, acct_type) VALUES (?, ?, ?, ?, ?, ?)""",
+                       user_insert)
     import_conn.commit()
 
     pcsv.seek(0)
@@ -93,6 +100,7 @@ def populate_student(scsv):
     import_conn.commit()
 
     scsv.seek(0)
+
 
 # This should be populated using the Email, Office, Department, Title cols of Professors
 def populate_professor(pcsv):
@@ -455,7 +463,7 @@ def populate_homework_grades(scsv):
            course_id CHAR(15) NOT NULL,
            sec_no INTEGER NOT NULL,
            hw_no INTEGER NOT NULL,
-           grade INTEGER NOT NULL,
+           grade INTEGER,
            PRIMARY KEY (student_email, course_id, sec_no, hw_no),
            FOREIGN KEY (student_email, course_id, sec_no) REFERENCES Enrolls(student_email, course_id, sec_no),
            FOREIGN KEY (course_id, sec_no, hw_no) REFERENCES Homework(course_id, sec_no, hw_no))""")
@@ -549,7 +557,7 @@ def populate_exam_grades(scsv):
            course_id CHAR(15) NOT NULL,
            sec_no INTEGER NOT NULL,
            exam_no INTEGER NOT NULL,
-           grade INTEGER NOT NULL,
+           grade INTEGER,
            PRIMARY KEY (student_email, course_id, sec_no, exam_no),
            FOREIGN KEY (student_email, course_id, sec_no) REFERENCES Enrolls(student_email, course_id, sec_no),
            FOREIGN KEY (course_id, sec_no, exam_no) REFERENCES Exams(course_id, sec_no, exam_no))""")
