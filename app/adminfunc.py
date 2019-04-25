@@ -149,7 +149,7 @@ def admin_remove_course(course_id):
             prof = Section(course_id, sec).get_professors()[0]
             profcoursecount = len(User(prof).get_sections_teaching())
             if prof in profdict:
-                profdict[prof] = profdict[prof] - 1
+                profdict[prof] = profcoursecount - 1
             else:
                 profdict[prof] = [prof, profcoursecount - 1]
         # If, after having all sections of this course removed,
